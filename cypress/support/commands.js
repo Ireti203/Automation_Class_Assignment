@@ -1,0 +1,66 @@
+// ***********************************************
+// This example commands.js shows you how to
+// create various custom commands and overwrite
+// existing commands.
+//
+// For more comprehensive examples of custom
+// commands please read more here:
+// https://on.cypress.io/custom-commands
+// ***********************************************
+//
+//
+// -- This is a parent command --
+// Cypress.Commands.add('login', (email, password) => { ... })
+//
+//
+// -- This is a child command --
+// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
+//
+//
+// -- This is a dual command --
+// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
+//
+//
+// -- This will overwrite an existing command --
+// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('clickAnyElement', (element) => {
+    cy.get(element).should('be.visible').click()
+})
+
+Cypress.Commands.add('insertAnyText', (textField, text) => {
+    cy.get(textField).should('be.visible').fill(text)
+})
+
+
+Cypress.Commands.add('selectAnyElement', (element, option) => {
+    cy.get(element).should('be.visible').select(option)
+})
+
+
+Cypress.Commands.add('verifyElementText', (element, text) => {
+    cy.get(element).should('be.visible').and('contain.text', text)
+})
+
+Cypress.Commands.add("getStripeIframeBody", () => {
+    return cy
+        .get('iframe[name^="__privateStripeFrame"]', { timeout: 20000 })
+        .its('0.contentDocument.body')
+        .should('not.be.empty')
+        .then(cy.wrap);
+});
+
+Cypress.Commands.add("enterStripeCardDetails", (card, exp, cvc, postal) => {
+    cy.getStripeIframeBody().find('#root').then($root => {
+        cy.wrap($root).click({ force: true });
+        cy.wrap($root).realType(card);
+        cy.wrap($root).realPress('Tab');
+        cy.wrap($root).realType(exp);
+        cy.wrap($root).realPress('Tab');
+        cy.wrap($root).realType(cvc);
+
+    });
+});
+
+
+
+

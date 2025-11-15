@@ -1,0 +1,30 @@
+{
+                    "buyticketLink" : ".menu-container a[href*=\"dummy-ticket-for-visa-application\"]",
+                    "url" : "https://dummyticket.com/",
+                    "radioTicketAndHotel": "#checkout-products>li:nth-of-type(4) input",
+                    "firstNameField" : "#travname",
+                    "lastNameField" : "#travlastname",
+                    "dob" : "#dob",
+                    "sex" : "#sex_2" ,
+                    "fromCity"  : "#fromcity",
+                    "toCity"   : "#tocity"  ,
+                    "departureDate"   : "#departon",
+                    "purposeOfDummyTicket" : "#select2-reasondummy-container",
+                    "reason" : "select2-reasondummy-result-qv1m-5",
+                    "phone" : "#billing_phone" , 
+                    "emailAddress"  : "#billing_email" ,
+                    "country": "#select2-billing_country-container",
+                    "searchCountry" : ".select2-search__field",
+                    "selectCountry" : ".select2-results__option",
+
+                    
+                    "streetAddress1" : "#billing_address_1",
+                    "streetAddress2" : "#billing_address_2",
+                    "town" : "#billing_city",
+                    "selectTown" : "#select2-billing_state-result-sz33-LA",
+                    "state" : "#select2-billing_state-container",
+                    "searchState" : ".select2-search__field",
+                    "stateOption" : ".select2-results__option",
+                    "placeOrder": "#place_order"
+
+}
